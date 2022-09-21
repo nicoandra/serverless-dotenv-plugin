@@ -19,9 +19,10 @@
   "keywords": [
     "serverless",
     "dotenv",
+    "docker",
     "serverless-plugin"
   ],
-  "author": "Colyn Brown <colyn.brown@gmail.com>",
+  "author": "Nicolas Andrade <nico@nmac.com.ar>",
   "contributors": [
     "NMark Tse <mark.tse@neverendingqs.com> (https://neverendingqs.com/)",
     "Nicolas Andrade <nico@nmac.com.ar> (https://nmac.com.ar/)"

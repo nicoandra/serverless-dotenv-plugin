@@ -27,7 +27,7 @@ This plugin is only useful if you want to automatically import **all** variables
 
 ```yaml
 plugins:
-  - serverless-dotenv-plugin
+  - serverless-dotenv-docker-plugin
 
 provider:
   environment:
@@ -39,7 +39,7 @@ provider:
 First, install the plugin:
 
 ```bash
-> npm i -D serverless-dotenv-plugin
+> npm i -D serverless-dotenv-docker-plugin
 ```
 
 Next, add the plugin to your serverless config file:
@@ -47,7 +47,7 @@ Next, add the plugin to your serverless config file:
 ```yaml
 service: myService
 plugins:
-  - serverless-dotenv-plugin
+  - serverless-dotenv-docker-plugin
 ...
 ```
 
