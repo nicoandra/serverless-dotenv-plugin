@@ -29,7 +29,7 @@ class ServerlessPlugin {
         required: {},
         variableExpansion: true,
         v4BreakingChanges: false,
-        envFileOnly: false,
+        envFileOnly: true,
       },
       (this.serverless.service.custom &&
         this.serverless.service.custom['dotenv']) ||

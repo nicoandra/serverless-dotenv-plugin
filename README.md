@@ -1,13 +1,13 @@
-# serverless-dotenv-plugin
+# serverless-dotenv-docker-plugin
 
-[![CI](https://github.com/neverendingqs/serverless-dotenv-plugin/workflows/CI/badge.svg)](https://github.com/neverendingqs/serverless-dotenv-plugin/actions?query=workflow%3ACI+branch%3Amaster)
-[![Coverage Status](https://coveralls.io/repos/github/neverendingqs/serverless-dotenv-plugin/badge.svg?branch=master)](https://coveralls.io/github/neverendingqs/serverless-dotenv-plugin?branch=master)
+[![CI](https://github.com/nicoandra/serverless-dotenv-plugin/workflows/CI/badge.svg)](https://github.com/nicoandra/serverless-dotenv-plugin/actions?query=workflow%3ACI+branch%3Amaster)
+[![Coverage Status](https://coveralls.io/repos/github/nicoandra/serverless-dotenv-plugin/badge.svg?branch=master)](https://coveralls.io/github/nicoandra/serverless-dotenv-plugin?branch=master)
 [![npm version](https://img.shields.io/npm/v/serverless-dotenv-plugin.svg?style=flat)](https://www.npmjs.com/package/serverless-dotenv-plugin)
 
-Preload function environment variables into Serverless. Use this plugin if you have variables stored in a `.env` file that you want loaded into your functions.
+Preload function environment variables into Serverless. Use this plugin if you have variables stored in a `.env` file that you want loaded into your functions, but you don't want to include any of the locally defined environment variables. This is useful to be able to run command such as `serverless deploy` from a Docker container where you have set environment variables used for Development.
 
 This used to also preload environment variables into your `serverless.yml` config, but no longer does with `serverless>=2.26.0`.
-See [this discussion thread](https://github.com/neverendingqs/serverless-dotenv-plugin/discussions/155) or the FAQ below for details on the impact of how environment variables are loaded with `serverless>=2.26.0` and `serverless>=3.0.0`.**
+See [this discussion thread](https://github.com/nicoandra/serverless-dotenv-plugin/discussions/155) or the FAQ below for details on the impact of how environment variables are loaded with `serverless>=2.26.0` and `serverless>=3.0.0`.**
 
 ## Do you need this plugin?
 
@@ -21,7 +21,7 @@ provider:
     FOO: ${env:FOO}
 ```
 
-For more complex situations, you will need to [wire up `dotenv` yourself](https://github.com/neverendingqs/serverless-dotenv-example).
+For more complex situations, you will need to [wire up `dotenv` yourself](https://github.com/nicoandra/serverless-dotenv-example).
 
 This plugin is only useful if you want to automatically import **all** variables from `.env` into functions:
 
@@ -243,7 +243,7 @@ You can find example usage in the `examples` folder.
 
 ## Changelog
 
-The changelog is available in the `CHANGELOG.md` file in the package or [on GitHub](https://github.com/neverendingqs/serverless-dotenv-plugin/blob/master/CHANGELOG.md).
+The changelog is available in the `CHANGELOG.md` file in the package or [on GitHub](https://github.com/nicoandra/serverless-dotenv-plugin/blob/master/CHANGELOG.md).
 
 ## FAQ
 
@@ -266,7 +266,7 @@ This is important for several FAQ items below.
 
 `env` variables will get resolved before this plugin is initialized. This means `env` variables inside `serverless.yml` can **no longer** rely on this plugin to load them from `dotenv` files. See [serverless/serverless#8364](https://github.com/serverless/serverless/issues/8364) for more details on the changes made to the Serverless Framework variables engine.
 
-The [Serverless Framework has basic `dotenv` support built-in](https://www.serverless.com/framework/docs/environment-variables/). For support with more complicated workflows with `dotenv`, see [`serverless-dotenv-example`](https://github.com/neverendingqs/serverless-dotenv-example) for details.
+The [Serverless Framework has basic `dotenv` support built-in](https://www.serverless.com/framework/docs/environment-variables/). For support with more complicated workflows with `dotenv`, see [`serverless-dotenv-example`](https://github.com/nicoandra/serverless-dotenv-example) for details.
 
 You can continue to use this plugin to automatically load environment variables into all your functions using `dotenv`.
 
@@ -305,7 +305,7 @@ As well, because of the variables engine changed in `serverless>=2.26.0` (see ab
 
 Because Serverless variables have not been interpolated when this plugin runs, `basePath` and `path` will always be treated like literal strings (e.g. `${opt:stage}` would be presented to the plugin, not the passed in via `--stage`). The suggested pattern is to store all your dotenv files in one folder, and rely on `NODE_ENV`, `--env`, or `--stage` to resolve to the right file.
 
-There are no plans to support anything other than literal strings at this time, although you are free to discuss this in [#52](https://github.com/neverendingqs/serverless-dotenv-plugin/issues/52).
+There are no plans to support anything other than literal strings at this time, although you are free to discuss this in [#52](https://github.com/nicoandra/serverless-dotenv-plugin/issues/52).
 
 ### Why doesn't this plugin work when `provider.environment` references another file?
 
@@ -321,7 +321,7 @@ provider:
     - DDB_TABLE: ${env:DDB_TABLE}
 ```
 
-More details are available at [#38](https://github.com/neverendingqs/serverless-dotenv-plugin/issues/38).
+More details are available at [#38](https://github.com/nicoandra/serverless-dotenv-plugin/issues/38).
 
 ## Contributing
 
