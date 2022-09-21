@@ -1,7 +1,7 @@
 {
   "name": "serverless-dotenv-docker-plugin",
-  "version": "4.0.2",
-  "description": "Preload environment variables with dotenv into serverless.",
+  "version": "4.0.3",
+  "description": "Preload environment variables with dotenv into serverless. Ignores local environment variables unless explicitly requested.",
   "main": "src/index.js",
   "files": [
     "src/**/*"
